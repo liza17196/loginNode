@@ -1,0 +1,33 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+input, textarea {
+  width:100%;
+  padding:10px;
+  border: 1px solid $grey;
+  &.input {
+    &--error {
+      border-color: red;
+    }
+  }
+}
+
+.inner {
+  max-width:900px;
+  margin: 0 auto;
+  @media all and (max-width: 900px) {
+    padding: 2rem;
+  }
+.form {
+  background: white;
+  padding: 2rem;
+  box-shadow: $grad;
+  & + .form {
+    margin-top: 4rem;
+  }
