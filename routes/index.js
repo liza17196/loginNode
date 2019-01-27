@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-const usersController = require('../controllers/usersController');
-const authController = require('../controllers/authController');
+import {router, express} from 'express';
+// var router = express.Router();
+import usersController from '../controllers/usersController';
+import authController from '../controllers/authController';
 
 router.get('/login', authController.showLogin);
 router.get('/signup', authController.showRegister);

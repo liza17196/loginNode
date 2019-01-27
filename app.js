@@ -1,13 +1,14 @@
-const mongoose = require('mongoose');
-const createError = require('http-errors');
-const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const logger = require('morgan');
-const flash = require('connect-flash');
-const indexRouter = require('./routes/index');
-const expressValidator = require('express-validator');
-const jwt = require('jsonwebtoken');
+import mongoose from 'mongoose';
+import createError from 'http-errors';
+import {express} from 'express';
+import session from 'express-session';
+import path from 'path';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
+import flash from 'connect-flash';
+import indexRouter from './routes/index';
+import expressValidator from 'express-validator';
+import jwt from 'jsonwebtoken';
 
 const app = express();
 
@@ -22,7 +23,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+app.use(session({
+    secret: process.env.SECRET,
+    key: process.env.KEY,
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
 app.use(flash());
+
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler

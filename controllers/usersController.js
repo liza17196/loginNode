@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const jwt = require('jsonwebtoken');
+import mongoose from 'mongoose';
+import jwt from 'jsonwebtoken';
 
 exports.authMiddleware = (req, res, next) => {
     const token = req.headers['access-token'];

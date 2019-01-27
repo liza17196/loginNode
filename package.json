@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "prod": "node ./start.js",
-    "watch": "nodemon ./start.js --ignore public/"
+    "watch": "node-es6 ./start.js --ignore public/"
   },
   "dependencies": {
     "bcrypt": "^3.0.3",

@@ -1,12 +1,11 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-const validator = require('validator');
-const mongodbErrorHandler = require('mongoose-mongodb-errors');
-const passportLocalMongoose = require('passport-local-mongoose');
-const passportJwt = require('passport-jwt');
-const bcrypt = require('bcrypt');
+import {Schema, mongoose} from 'mongoose';
+import validator from 'validator';
+import mongodbErrorHandler from 'mongoose-mongodb-errors';
+import passportLocalMongoose from 'passport-local-mongoose';
+import passportJwt from 'passport-jwt';
+import bcrypt from 'bcrypt';
 
-const userSchema = new Schema({
+class userSchema extends Schema({
     email: {
         type: String,
         unique: true,
@@ -31,4 +30,4 @@ userSchema.methods.comparePassword = (password, hash_password) => {
     return bcrypt.compareSync(password, hash_password);
 }
 
-module.exports = mongoose.model('User', userSchema);
+export default mongoose.model('User', userSchema);

@@ -1,7 +1,6 @@
-const mongoose = require('mongoose');
-const User = mongoose.model('User');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+import {mongoose, User} from 'mongoose';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 exports.showLogin = (req, res) => {
     res.render('login', { title: 'Login' });

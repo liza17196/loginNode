@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // import environmental variables from our variables.env file
-require('dotenv').config({ path: 'variables.env' });
+require('dotenv').config({ path: '.env' });
 require('./models/User');
 
 // Connect to our Database and handle any bad connections
